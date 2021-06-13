@@ -19,7 +19,7 @@ class MainWindow(QMainWindow):
 		self.browser = QWebEngineView()
 
 		# setting default browser url as google
-		self.browser.setUrl(QUrl("http://google.com"))
+		self.browser.setUrl(QUrl("http://www.google.com"))
 
 		# adding action when url get changed
 		self.browser.urlChanged.connect(self.update_urlbar)
@@ -128,10 +128,6 @@ class MainWindow(QMainWindow):
 			# set url scheme to html
 			q.setScheme("http")
 		
-		file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "loading_screen.html"))
-		local_url = QUrl.fromLocalFile(file_path)
-		self.browser.load(local_url)
-		
 		if model.load_model(q.toString()) == 0:
 			self.browser.setUrl(q)
 		else:
@@ -152,7 +148,6 @@ class MainWindow(QMainWindow):
 		# setting cursor position of the url bar
 		self.urlbar.setCursorPosition(0)
 
-model.load_model('https://www.google.com')
 # creating a pyQt5 application
 app = QApplication(sys.argv)
 

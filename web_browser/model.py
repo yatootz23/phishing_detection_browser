@@ -67,6 +67,7 @@ def start_model():
                             batch_size=128, epochs=1000, verbose=2)
     proposed.save('C:/Users/nellen/Desktop/Python/Django/web_browser')
 
+
 def load_model(url):
     proposed = keras.models.load_model('C:/Users/nellen/Desktop/Python/Django/web_browser')
     sample_data = features.featureExtraction(url)
